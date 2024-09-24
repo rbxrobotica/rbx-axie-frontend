@@ -1,9 +1,9 @@
 FROM node:alpine
 WORKDIR /app
-COPY ../package.json ./
+COPY ../axie-front/package.json ./
 RUN cat ./package.json
 RUN npm install --legacy-peer-deps
-COPY ../. .
+COPY ../axie-front/. .
 RUN npm run build
 EXPOSE 3000
 
