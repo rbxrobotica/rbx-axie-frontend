@@ -90,3 +90,12 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+.page-content {
+  padding: 2rem;
+}
+
+.title {
+  padding: 5rem;
+}
