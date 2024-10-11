@@ -15,6 +15,9 @@ const formSchema = z.object({
   purityGenes: z.number().min(1, {
     message: "O ID deve ser um número positivo.",
   }),
+  geneticPurity: z.number().min(1, {
+    message: "O ID deve ser um número positivo.",
+  }),
   class: z.number().min(1, {
     message: "O ID deve ser um número positivo.",
   }),
@@ -37,7 +40,7 @@ export default function BuscaEmLote() {
   const onSubmit: SubmitHandler<AxieSchemaType> = (data) => {
     console.log(data);
 
-    setSearchResult(`Resultado da busca: ${data.axieId}`);
+    setSearchResult(`Resultado da busca: aqui vai aparecer uma tabela com os resultados`);
   }
 
 
@@ -70,6 +73,12 @@ export default function BuscaEmLote() {
 
             <Input
               className="input"
+              placeholder="Genetic Purity (%)"
+              {...register("geneticPurity", { valueAsNumber: true })}
+            />
+
+            <Input
+              className="input"
               placeholder="breedCount"
               {...register("class", { valueAsNumber: true })}
             />
@@ -84,6 +93,9 @@ export default function BuscaEmLote() {
               )}
               {errors.purityGenes && (
                 <span className="text-red-500 mt-2">{errors.purityGenes.message}</span>
+              )}
+              {errors.geneticPurity && (
+                <span className="text-red-500 mt-2">{errors.geneticPurity.message}</span>
               )}
               {errors.class && (
                 <span className="text-red-500 mt-2">{errors.class.message}</span>
